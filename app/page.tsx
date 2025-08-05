@@ -1167,14 +1167,14 @@ export default function CasaBlancaRestaurant() {
                 <Phone className="h-6 w-6 text-[#AB8476] mt-1" />
                 <div>
                   <h3 className="text-white font-semibold text-lg mb-2">Telefon</h3>
-                  <p className="text-white/80 cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 123 456</p>
+                  <p className="text-white/80 cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 199 66</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Mail className="h-6 w-6 text-[#AB8476] mt-1" />
                 <div>
                   <h3 className="text-white font-semibold text-lg mb-2">E-post</h3>
-                  <p className="text-white/80 cursor-pointer hover:text-[#AB8476] transition-colors">info@casablanca-trelleborg.se</p>
+                  <p className="text-white/80 cursor-pointer hover:text-[#AB8476] transition-colors">boka@casa-blanca.se</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -1194,7 +1194,16 @@ export default function CasaBlancaRestaurant() {
               className="bg-white/10 backdrop-blur-md rounded-2xl p-2"
             >
               <div className="w-full h-96 bg-gray-300 rounded-xl flex items-center justify-center cursor-pointer hover:bg-gray-400 transition-colors">
-                <p className="text-gray-600">Google Maps Integration</p>
+                <iframe
+                  src="https://maps.google.com/maps?q=Corfitz-beck-friisgatan+11,+231+43+Trelleborg,+Sweden&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-lg"
+                />
               </div>
             </motion.div>
           </div>
@@ -1247,8 +1256,8 @@ export default function CasaBlancaRestaurant() {
               <div className="space-y-2 text-white/80">
                 <p>Corfitz-Beck-Friisgatan 11</p>
                 <p>Trelleborg</p>
-                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 123 456</p>
-                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">info@casablanca-trelleborg.se</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 199 66</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">boka@casa-blanca.se</p>
               </div>
             </div>
             <div>

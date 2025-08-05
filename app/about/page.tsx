@@ -108,9 +108,9 @@ const translations = {
     },
     contact: {
       title: "Kontakta Oss",
-      address: "Corfitz-Beck-Friisgatan 11, Trelleborg",
-      phone: "+46 410 123 456",
-      email: "info@casablanca-trelleborg.se",
+      address: "Corfitz-beck-friisgatan 11, 231 43 Trelleborg",
+      phone: "+46 410 199 66",
+      email: "boka@casa-blanca.se",
       hours: "Mån-Fre: 11:00-22:00, Lör-Sön: 12:00-23:00"
     },
     bookTable: "Boka Bord",
@@ -191,9 +191,9 @@ const translations = {
     },
     contact: {
       title: "Contact Us",
-      address: "Corfitz-Beck-Friisgatan 11, Trelleborg",
-      phone: "+46 410 123 456",
-      email: "info@casablanca-trelleborg.se",
+      address: "Corfitz-beck-friisgatan 11, 231 43 Trelleborg",
+      phone: "+46 410 199 66",
+      email: "boka@casa-blanca.se",
       hours: "Mon-Fri: 11:00-22:00, Sat-Sun: 12:00-23:00"
     },
     bookTable: "Book a Table",
@@ -274,9 +274,9 @@ const translations = {
     },
     contact: {
       title: "Kontaktieren Sie uns",
-      address: "Corfitz-Beck-Friisgatan 11, Trelleborg",
-      phone: "+46 410 123 456",
-      email: "info@casablanca-trelleborg.se", 
+      address: "Corfitz-beck-friisgatan 11, 231 43 Trelleborg",
+      phone: "+46 410 199 66",
+      email: "boka@casa-blanca.se", 
       hours: "Mo-Fr: 11:00-22:00, Sa-So: 12:00-23:00"
     },
     bookTable: "Tisch reservieren",
@@ -884,8 +884,8 @@ export default function AboutPage() {
               <div className="space-y-2 text-white/80">
                 <p>Corfitz-Beck-Friisgatan 11</p>
                 <p>Trelleborg</p>
-                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 123 456</p>
-                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">info@casablanca-trelleborg.se</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 199 66</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">boka@casa-blanca.se</p>
               </div>
             </div>
             <div>

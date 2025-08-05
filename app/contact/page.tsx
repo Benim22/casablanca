@@ -34,9 +34,9 @@ const translations = {
     title: "Kontakta Oss",
     subtitle: "Vi ser fram emot att höra från dig",
     contact: {
-      address: "Corfitz-Beck-Friisgatan 11, Trelleborg",
-      phone: "+46 410 123 456",
-      email: "info@casablanca-trelleborg.se",
+      address: "Corfitz-beck-friisgatan 11, 231 43 Trelleborg",
+      phone: "+46 410 199 66",
+      email: "boka@casa-blanca.se",
       hours: "Mån-Fre: 11:00-22:00, Lör-Sön: 12:00-23:00"
     },
     form: {
@@ -92,9 +92,9 @@ const translations = {
     title: "Contact Us",
     subtitle: "We look forward to hearing from you",
     contact: {
-      address: "Corfitz-Beck-Friisgatan 11, Trelleborg",
-      phone: "+46 410 123 456",
-      email: "info@casablanca-trelleborg.se",
+      address: "Corfitz-beck-friisgatan 11, 231 43 Trelleborg",
+      phone: "+46 410 199 66",
+      email: "boka@casa-blanca.se",
       hours: "Mon-Fri: 11:00-22:00, Sat-Sun: 12:00-23:00"
     },
     form: {
@@ -150,9 +150,9 @@ const translations = {
     title: "Kontaktieren Sie uns",
     subtitle: "Wir freuen uns, von Ihnen zu hören",
     contact: {
-      address: "Corfitz-Beck-Friisgatan 11, Trelleborg",
-      phone: "+46 410 123 456",
-      email: "info@casablanca-trelleborg.se",
+      address: "Corfitz-beck-friisgatan 11, 231 43 Trelleborg",
+      phone: "+46 410 199 66",
+      email: "boka@casa-blanca.se",
       hours: "Mo-Fr: 11:00-22:00, Sa-So: 12:00-23:00"
     },
     form: {
@@ -626,14 +626,19 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              {/* Map Placeholder */}
+              {/* Google Maps */}
               <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white overflow-hidden">
-                <div className="w-full h-80 bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center cursor-pointer hover:bg-gradient-to-br hover:from-gray-500 hover:to-gray-700 transition-all duration-300">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-white/60 mx-auto mb-2" />
-                    <p className="text-white/60">Google Maps Integration</p>
-                    <p className="text-white/40 text-sm">Corfitz-Beck-Friisgatan 11, Trelleborg</p>
-                  </div>
+                <div className="w-full h-80 relative">
+                  <iframe
+                    src="https://maps.google.com/maps?q=Corfitz-beck-friisgatan+11,+231+43+Trelleborg,+Sweden&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="rounded-lg"
+                  />
                 </div>
               </Card>
 
@@ -765,8 +770,8 @@ export default function ContactPage() {
               <div className="space-y-2 text-white/80">
                 <p>Corfitz-Beck-Friisgatan 11</p>
                 <p>Trelleborg</p>
-                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 123 456</p>
-                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">info@casablanca-trelleborg.se</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 199 66</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">boka@casa-blanca.se</p>
               </div>
             </div>
             <div>
