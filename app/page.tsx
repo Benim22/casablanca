@@ -891,8 +891,12 @@ export default function CasaBlancaRestaurant() {
             muted
             loop
             playsInline
+            preload="metadata"
+            poster="/placeholder.jpg"
           >
+            <source src="/casa-hero.mp4" type="video/mp4" />
             <source src="/casa-blanca-hero.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-black/50" />
         </div>

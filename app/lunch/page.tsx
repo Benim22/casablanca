@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   ArrowLeft,
   Clock,
@@ -15,6 +15,12 @@ import {
   CheckCircle,
   Calendar,
   Users,
+  Menu,
+  X,
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -240,6 +246,7 @@ const weeklyMenu = {
 
 export default function LunchPage() {
   const [language, setLanguage] = useState<"sv" | "en" | "de">("sv")
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   
   const t = translations[language]
   const menu = weeklyMenu[language]
@@ -279,7 +286,7 @@ export default function LunchPage() {
                   <ArrowLeft className="h-5 w-5" />
                 </Button>
               </Link>
-              <div className="flex items-center space-x-3">
+              <Link href="/" className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity duration-300">
                 <div className="w-10 h-10">
                   <Image
                     src="/casa-blanca-logo-fill-r1_1.svg"
@@ -290,21 +297,103 @@ export default function LunchPage() {
                   />
                 </div>
                 <div className="text-xl font-bold text-white">Casa Blanca</div>
-              </div>
+              </Link>
             </div>
 
-            {/* Language Selector */}
-            <Select value={language} onValueChange={(value: "sv" | "en" | "de") => setLanguage(value)}>
-              <SelectTrigger className="w-16 bg-white/10 border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <Globe className="h-4 w-4" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="sv" className="cursor-pointer">SV</SelectItem>
-                <SelectItem value="en" className="cursor-pointer">EN</SelectItem>
-                <SelectItem value="de" className="cursor-pointer">DE</SelectItem>
-              </SelectContent>
-            </Select>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1 mr-8">
+              <Link 
+                href="/" 
+                className="px-4 py-2 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10"
+              >
+                Hem
+              </Link>
+              <Link 
+                href="/menu" 
+                className="px-4 py-2 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10"
+              >
+                Meny
+              </Link>
+              <Link 
+                href="/lunch" 
+                className="px-4 py-2 text-[#AB8476] bg-white/10 transition-all duration-300 cursor-pointer rounded-lg"
+              >
+                Lunch
+              </Link>
+              <Link 
+                href="/about" 
+                className="px-4 py-2 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10"
+              >
+                Om Oss
+              </Link>
+              <Link 
+                href="/contact" 
+                className="px-4 py-2 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10"
+              >
+                Kontakt
+              </Link>
+            </nav>
+
+            <div className="flex items-center space-x-3">
+              {/* Language Selector */}
+              <Select value={language} onValueChange={(value: "sv" | "en" | "de") => setLanguage(value)}>
+                <SelectTrigger className="w-16 bg-white/10 border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer">
+                  <Globe className="h-4 w-4" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="sv" className="cursor-pointer">SV</SelectItem>
+                  <SelectItem value="en" className="cursor-pointer">EN</SelectItem>
+                  <SelectItem value="de" className="cursor-pointer">DE</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Mobile Menu */}
+                             <Button
+                 variant="outline"
+                 size="icon"
+                 className="lg:hidden bg-white/10 border-white/20 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+               >
+                 {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+               </Button>
+             </div>
           </div>
+
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="lg:hidden bg-black/40 backdrop-blur-md border-t border-white/10 mt-4 rounded-lg"
+              >
+                <nav className="px-4 py-4 space-y-2">
+                  <Link href="/" className="block px-4 py-3 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10">
+                    Hem
+                  </Link>
+                  <Link href="/menu" className="block px-4 py-3 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10">
+                    Meny
+                  </Link>
+                  <Link href="/lunch" className="block px-4 py-3 text-[#AB8476] bg-white/10 transition-all duration-300 cursor-pointer rounded-lg">
+                    Lunch
+                  </Link>
+                  <Link href="/about" className="block px-4 py-3 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10">
+                    Om Oss
+                  </Link>
+                  <Link href="/contact" className="block px-4 py-3 text-white hover:text-[#AB8476] transition-all duration-300 cursor-pointer rounded-lg hover:bg-white/10">
+                    Kontakt
+                  </Link>
+                  <Button 
+                    className="w-full mt-2 bg-gradient-to-r from-[#AB8476] to-[#8B6B5C] hover:from-[#8B6B5C] hover:to-[#6B4F42] text-white cursor-pointer"
+                  >
+                    <Calendar className="h-4 w-4 mr-2" />
+                    {t.bookTable}
+                  </Button>
+                </nav>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </motion.header>
 
@@ -562,6 +651,89 @@ export default function LunchPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 bg-black/40 border-t border-white/10">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <Link href="/" className="flex items-center space-x-3 mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300">
+                <div className="w-8 h-8">
+                  <Image
+                    src="/casa-blanca-logo-fill-r1_1.svg"
+                    alt="Casa Blanca Logo"
+                    width={32}
+                    height={32}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-[#AB8476]">Casa Blanca</h3>
+              </Link>
+              <p className="text-white/80">
+                Upplev fantastisk mat, mysig atmosfär och vänlig service i hjärtat av Trelleborg.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Snabblänkar</h4>
+              <div className="space-y-2">
+                <Link href="/" className="block text-white/80 hover:text-[#AB8476] transition-colors cursor-pointer">
+                  Hem
+                </Link>
+                <Link href="/menu" className="block text-white/80 hover:text-[#AB8476] transition-colors cursor-pointer">
+                  Meny
+                </Link>
+                <Link href="/lunch" className="block text-white/80 hover:text-[#AB8476] transition-colors cursor-pointer">
+                  Lunch
+                </Link>
+                <Link href="/about" className="block text-white/80 hover:text-[#AB8476] transition-colors cursor-pointer">
+                  Om Oss
+                </Link>
+                <Link href="/contact" className="block text-white/80 hover:text-[#AB8476] transition-colors cursor-pointer">
+                  Kontakt
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Kontakt</h4>
+              <div className="space-y-2 text-white/80">
+                <p>Corfitz-Beck-Friisgatan 11</p>
+                <p>Trelleborg</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">+46 410 123 456</p>
+                <p className="cursor-pointer hover:text-[#AB8476] transition-colors">info@casablanca-trelleborg.se</p>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Följ Oss</h4>
+              <div className="flex space-x-4">
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="bg-white/10 border-white/20 text-white hover:bg-white/20 cursor-pointer rounded-full"
+                >
+                  <Facebook className="h-4 w-4" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="bg-white/10 border-white/20 text-white hover:bg-white/20 cursor-pointer rounded-full"
+                >
+                  <Instagram className="h-4 w-4" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="bg-white/10 border-white/20 text-white hover:bg-white/20 cursor-pointer rounded-full"
+                >
+                  <Twitter className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-white/10 mt-8 pt-8 text-center">
+            <p className="text-white/60">© 2024 Casa Blanca Trelleborg. Alla rättigheter förbehållna.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 } 

@@ -22,17 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="sv">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body className="cursor-default">{children}</body>
+    <html lang="sv" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <body className={`cursor-default ${GeistSans.className}`} suppressHydrationWarning>{children}</body>
     </html>
   )
 }
